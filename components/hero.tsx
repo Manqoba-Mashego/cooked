@@ -12,7 +12,7 @@ const Hero = () => {
             </div>
             <div className="flex flex-wrap justify-center gap-2 mt-6">
             {tags.map((tag) => (
-                <span key={tag} className="px-3 py-1 bg-gray-100 rounded-full text-sm">{tag}</span>
+                <span key={tag} className="px-3 py-1 bg-gray-200 cursor-pointer rounded-full text-sm">{tag}</span>
                 )
             )}
             </div>

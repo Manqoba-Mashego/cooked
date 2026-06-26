@@ -14,7 +14,7 @@ const Navbar = () => {
     // TODO: use actual sessions
     const loggedIn = true;
   return (
-    <nav className='border-b bg-white/80 backdrop-blur-lg border-gray-200 fixed z-0 top-0 left-0 right-0'>
+    <nav className='border-b bg-white/80 backdrop-blur-lg border-gray-200 fixed z-1000 top-0 left-0 right-0'>
         <div className='w-[90%] flex justify-between items-center mx-auto py-4' >
             <Link href={"/"} className='flex items-center gap-1.5'>
                 <ChefHat size={32} className='text-[#286749]' />
@@ -62,7 +62,7 @@ const Navbar = () => {
                                 <AvatarFallback>M</AvatarFallback>
                             </Avatar>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align='end' className='min-w-fit'>
+                        <DropdownMenuContent align='end' className='min-w-fit '>
                             <DropdownMenuGroup>
                                 <DropdownMenuLabel className='whitespace-nowrap'>
                                     <p className='text-[14px] text-black font-semibold'>Manqoba Mashego</p>
@@ -102,7 +102,7 @@ const Navbar = () => {
                                         <DialogContent>
                                             <DialogHeader>
                                                 <DialogTitle>Are you sure that you want to logout?</DialogTitle>
-                                                <DialogDescription>You will be logged out of your What's Cooking account.</DialogDescription>
+                                                <DialogDescription>You will be logged out of your Cooked account.</DialogDescription>
                                             </DialogHeader>
                                             <DialogFooter>
                                                 <DialogClose asChild>
