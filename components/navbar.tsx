@@ -130,7 +130,7 @@ const Navbar = () => {
                         <div className="flex items-center justify-between">
                             <Link href={"/"} className='flex items-center gap-1.5'>
                                 <ChefHat size={25} className='text-[#286749]' />
-                                <span className='font-serif font-semibold text-lg'>What's Cooking</span>
+                                <span className='font-serif font-semibold text-lg'>Cooked</span>
                             </Link>
                             <SheetClose asChild>
                                 <Button variant={"ghost"} size={"icon"}>
