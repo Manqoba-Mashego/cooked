@@ -45,7 +45,7 @@ const Featured = () => {
         <p className='text-2xl font-bold mb-5'>Featured Recipes</p>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-10'>
             {recipes.map((recipe, index) => (
-                <RecipeCard recipe={recipe} saved={saved} setSaved={setSaved} index={index} />
+                <RecipeCard recipe={recipe} saved={saved} setSaved={setSaved} key={index} />
             ))}
         </div>
         <div className="text-center mt-15 mb-20">

@@ -23,9 +23,9 @@ const Navbar = () => {
 
                 </Link>
 
-                <div className='hidden xl:flex'>
-                    <Button variant={"outline"} className='border-0 font-normal text-[16px] font-sans' asChild>
-                        <Link href={"/login"}>Home</Link>
+                <div className='hidden xl:flex gap-2'>
+                    <Button variant={"ghost"} className='border-0 font-normal text-[16px] font-sans bg-white/80 backdrop-blur-lg' asChild>
+                        <Link href={"/login"} className=''>Home</Link>
                     </Button>
                     <Button variant={"outline"} className='border-0 font-normal text-[16px] font-sans' asChild>
                         <Link href={"/login"}>Browse</Link>
