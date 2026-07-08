@@ -1,74 +1,57 @@
-import React from 'react'
-import { Card, CardAction, CardDescription, CardHeader, CardTitle } from './ui/card'
+"use client";
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Avatar, AvatarFallback } from './ui/avatar'
-import { Heart } from 'lucide-react'
+import { Bookmark, Clock, Heart } from 'lucide-react'
+import { useState } from 'react';
+import RecipeCard from './recipe-card';
 // import Image from 'next/image'
 
 const Featured = () => {
+    const [saved, setSaved] = useState(false);
     const recipes = [
-        {
-            img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr5o9HQKEBogv6e6eeI-8veows7FpZH2-2TmqdXfnPjQ&s=10",
-            title: "Simple Chicken Recipe",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fringilla sit amet diam eu dapibus.",
-
-        },
-        {
-            img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr5o9HQKEBogv6e6eeI-8veows7FpZH2-2TmqdXfnPjQ&s=10",
-            title: "Simple Chicken Recipe",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fringilla sit amet diam eu dapibus.",
-
-        },
-        {
-            img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr5o9HQKEBogv6e6eeI-8veows7FpZH2-2TmqdXfnPjQ&s=10",
-            title: "Simple Chicken Recipe",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fringilla sit amet diam eu dapibus.",
-
-        },
-        {
-            img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr5o9HQKEBogv6e6eeI-8veows7FpZH2-2TmqdXfnPjQ&s=10",
-            title: "Simple Chicken Recipe",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fringilla sit amet diam eu dapibus.",
-
-        },
-        {
-            img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr5o9HQKEBogv6e6eeI-8veows7FpZH2-2TmqdXfnPjQ&s=10",
-            title: "Simple Chicken Recipe",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fringilla sit amet diam eu dapibus.",
-
-        },
-        {
-            img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr5o9HQKEBogv6e6eeI-8veows7FpZH2-2TmqdXfnPjQ&s=10",
-            title: "Simple Chicken Recipe",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fringilla sit amet diam eu dapibus.",
-
-        },
-    ]
+    {
+        img_url: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+        title: "Creamy Garlic Chicken Pasta",
+        description: "Tender chicken tossed in a rich garlic parmesan sauce with perfectly cooked pasta for a quick and comforting dinner.",
+    },
+    {
+        img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ52sF2gN5eQUkOkdzXns2-gawWSI-NRQF1izFrHkXJXg&s=10",
+        title: "Classic Beef Burger",
+        description: "Juicy grilled beef patties layered with fresh lettuce, tomatoes, and melted cheese on a toasted bun.",
+    },
+    {
+        img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfs0IDEsyHS9lDf9vGBqooOGTNaYcC4p1tyUvfFmHk1g&s=10",
+        title: "Fresh Garden Salad",
+        description: "A colorful mix of crisp vegetables topped with feta cheese and a light homemade vinaigrette dressing.",
+    },
+    {
+        img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9nRnvUVOQkiaxtC4b74ncSTLCgsysKDZ-apCDJrbaBw&s=10",
+        title: "Spicy Shrimp Tacos",
+        description: "Soft tortillas filled with seasoned shrimp, crunchy slaw, and a creamy chipotle sauce for extra flavor.",
+    },
+    {
+        img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEuw0BtUBAJRdjOvJqB_j-7fwkgDPZXyUk09oidq27jAR9TV_Vt3cPfC5g&s=10",
+        title: "Chocolate Lava Cake",
+        description: "Warm chocolate cake with a gooey molten center, served best with vanilla ice cream or fresh berries.",
+    },
+    {
+        img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfs0IDEsyHS9lDf9vGBqooOGTNaYcC4p1tyUvfFmHk1g&s=10",
+        title: "Homestyle Pancake Stack",
+        description: "Fluffy golden pancakes drizzled with maple syrup and topped with fresh strawberries and whipped cream.",
+    },
+]
   return (
     <div className='w-[80%] mx-auto'>
         <p className='text-2xl font-bold mb-5'>Featured Recipes</p>
-        <div className='grid grid-cols-3 gap-5'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-10'>
             {recipes.map((recipe, index) => (
-                <Card className='relative pt-0' key={index}>
-                    <img src={recipe.img_url} alt="Food" className='relative z-20 aspect-video w-full object-cover'/>
-                    <CardHeader>
-                        <CardAction className='text-green-500 bg-green-100 py-1 px-2.5 rounded-2xl'>Easy</CardAction>
-                        <CardTitle>{recipe.title}</CardTitle>
-                        <CardDescription>{recipe.description}</CardDescription>
-                        <div className='mt-2 flex justify-between '>
-                            <div className='flex gap-2 items-center'>
-                                <Avatar size='sm'>
-                                    <AvatarFallback>J</AvatarFallback>
-                                </Avatar>
-                                <p>John Doe</p>
-                            </div>
-                            <div className='flex gap-3'>
-                                <Heart className='text-gray-400' size={17}></Heart>
-                                <p>11</p>
-                            </div>
-                        </div>
-                    </CardHeader>
-                </Card>
+                <RecipeCard recipe={recipe} saved={saved} setSaved={setSaved} index={index} />
             ))}
+        </div>
+        <div className="text-center mt-15 mb-20">
+            <button className="bg-black text-white px-6 py-3 rounded-xl">
+            Browse All Recipes
+            </button>
         </div>
     </div>
   )
